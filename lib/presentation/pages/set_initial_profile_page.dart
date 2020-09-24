@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_whatsapp_clone/presentation/screens/home_screen.dart';
 import 'package:flutter_whatsapp_clone/presentation/widgets/theme/style.dart';
 
 class SetInitialProfileWidget extends StatefulWidget {
@@ -49,6 +50,9 @@ class _SetInitialProfileWidgetState extends State<SetInitialProfileWidget> {
                   color: greenColor,
                   onPressed: () {
                     //TODO
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (_) => HomeScreen(),
+                    ));
                   },
                   child: Text(
                     "Next",
