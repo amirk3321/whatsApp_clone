@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_whatsapp_clone/presentation/bloc/phone_auth/phone_auth_cubit.dart';
 import 'package:flutter_whatsapp_clone/presentation/screens/home_screen.dart';
 import 'package:flutter_whatsapp_clone/presentation/widgets/theme/style.dart';
 
 class SetInitialProfileWidget extends StatefulWidget {
+  final String phoneNumber;
+
+  const SetInitialProfileWidget({Key key, this.phoneNumber}) : super(key: key);
+
   @override
-  _SetInitialProfileWidgetState createState() => _SetInitialProfileWidgetState();
+  _SetInitialProfileWidgetState createState() =>
+      _SetInitialProfileWidgetState();
 }
 
 class _SetInitialProfileWidgetState extends State<SetInitialProfileWidget> {
-
-  TextEditingController _nameController=TextEditingController();
+  String get _phoneNumber => widget.phoneNumber;
+  TextEditingController _nameController = TextEditingController();
 
   @override
   void dispose() {
@@ -33,7 +40,9 @@ class _SetInitialProfileWidgetState extends State<SetInitialProfileWidget> {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 20,),
+            SizedBox(
+              height: 20,
+            ),
             Text(
               "Please provide your name and an optional Profile photo",
               textAlign: TextAlign.center,
@@ -41,19 +50,16 @@ class _SetInitialProfileWidgetState extends State<SetInitialProfileWidget> {
                 fontSize: 16,
               ),
             ),
-            SizedBox(height: 30,),
+            SizedBox(
+              height: 30,
+            ),
             _rowWidget(),
             Expanded(
               child: Align(
                 alignment: Alignment.bottomCenter,
                 child: MaterialButton(
                   color: greenColor,
-                  onPressed: () {
-                    //TODO
-                    Navigator.push(context, MaterialPageRoute(
-                      builder: (_) => HomeScreen(),
-                    ));
-                  },
+                  onPressed: _submitProfileInfo,
                   child: Text(
                     "Next",
                     style: TextStyle(
@@ -78,12 +84,13 @@ class _SetInitialProfileWidgetState extends State<SetInitialProfileWidget> {
             width: 50,
             height: 50,
             decoration: BoxDecoration(
-              color: textIconColorGray,
-              borderRadius: BorderRadius.all(Radius.circular(25))
-            ),
+                color: textIconColorGray,
+                borderRadius: BorderRadius.all(Radius.circular(25))),
             child: Icon(Icons.camera_alt),
           ),
-          SizedBox(width: 8,),
+          SizedBox(
+            width: 8,
+          ),
           Expanded(
             child: TextField(
               controller: _nameController,
@@ -92,18 +99,28 @@ class _SetInitialProfileWidgetState extends State<SetInitialProfileWidget> {
               ),
             ),
           ),
-          SizedBox(width: 8.0,),
+          SizedBox(
+            width: 8.0,
+          ),
           Container(
             width: 35,
             height: 35,
             decoration: BoxDecoration(
                 color: textIconColorGray,
-                borderRadius: BorderRadius.all(Radius.circular(25))
-            ),
+                borderRadius: BorderRadius.all(Radius.circular(25))),
             child: Icon(Icons.insert_emoticon),
           )
         ],
       ),
     );
+  }
+
+  void _submitProfileInfo() {
+    if (_nameController.text.isNotEmpty) {
+      BlocProvider.of<PhoneAuthCubit>(context).submitProfileInfo(
+          profileUrl: "",
+          phoneNumber: _phoneNumber,
+          name: _nameController.text);
+    }
   }
 }

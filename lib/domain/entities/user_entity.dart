@@ -9,15 +9,15 @@ class UserEntity extends Equatable {
   final String status;
   final String profileUrl;
 
-  UserEntity({
-    this.name,
+  UserEntity(
+   { this.name,
     this.email,
     this.phoneNumber,
     this.isOnline,
     this.uid,
-    this.status,
-    this.profileUrl,
-  });
+    this.status ="Hello there i'm using this app",
+    this.profileUrl,}
+  );
 
   @override
   // TODO: implement props

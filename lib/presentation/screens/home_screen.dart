@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_whatsapp_clone/presentation/bloc/auth/auth_cubit.dart';
 import 'package:flutter_whatsapp_clone/presentation/pages/calls_page.dart';
 import 'package:flutter_whatsapp_clone/presentation/pages/camera_page.dart';
 import 'package:flutter_whatsapp_clone/presentation/pages/chat_page.dart';
@@ -7,6 +9,9 @@ import 'package:flutter_whatsapp_clone/presentation/widgets/custom_tab_bar.dart'
 import 'package:flutter_whatsapp_clone/presentation/widgets/theme/style.dart';
 
 class HomeScreen extends StatefulWidget {
+  final String uid;
+
+  const HomeScreen({Key key, this.uid}) : super(key: key);
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -48,7 +53,6 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,7 +83,9 @@ class _HomeScreenState extends State<HomeScreen> {
           SizedBox(
             width: 5,
           ),
-          Icon(Icons.more_vert)
+          InkWell(onTap: (){
+            BlocProvider.of<AuthCubit>(context).loggedOut();
+          },child: Icon(Icons.more_vert))
         ],
       ):null,
       body: Column(

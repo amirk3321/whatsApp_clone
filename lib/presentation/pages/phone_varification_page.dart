@@ -1,15 +1,23 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_whatsapp_clone/presentation/bloc/phone_auth/phone_auth_cubit.dart';
 import 'package:flutter_whatsapp_clone/presentation/pages/set_initial_profile_page.dart';
 import 'package:flutter_whatsapp_clone/presentation/widgets/theme/style.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class PhoneVerificationPage extends StatefulWidget {
+  final String phoneNumber;
+
+  const PhoneVerificationPage({Key key, this.phoneNumber}) : super(key: key);
+
   @override
   _PhoneVerificationPageState createState() => _PhoneVerificationPageState();
 }
 
 class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
+
+  String get _phoneNumber => widget.phoneNumber;
   TextEditingController _pinCodeController=TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -47,14 +55,7 @@ class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
                 alignment: Alignment.bottomCenter,
                 child: MaterialButton(
                   color: greenColor,
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => SetInitialProfileWidget(),
-                      ),
-                    );
-                  },
+                  onPressed: _submitSmsCode,
                   child: Text(
                     "Next",
                     style: TextStyle(
@@ -81,6 +82,7 @@ class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
             length: 6,
             backgroundColor: Colors.transparent,
             obsecureText: true,
+            autoDisposeControllers: false,
             onChanged: (pinCode){
               print(pinCode);
             },
@@ -90,9 +92,11 @@ class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
       ),
     );
   }
-  @override
-  void dispose() {
-    _pinCodeController.dispose();
-    super.dispose();
+
+  void _submitSmsCode(){
+    if (_pinCodeController.text.isNotEmpty){
+      BlocProvider.of<PhoneAuthCubit>(context)
+          .submitSmsCode(smsCode: _pinCodeController.text);
+    }
   }
 }
