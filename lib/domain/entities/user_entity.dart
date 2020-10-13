@@ -15,7 +15,7 @@ class UserEntity extends Equatable {
     this.phoneNumber,
     this.isOnline,
     this.uid,
-    this.status ="Hello there i'm using this app",
+    this.status ="Hey there! I am Using WhatsApp Clone.",
     this.profileUrl,}
   );
 

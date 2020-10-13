@@ -1,6 +1,8 @@
 
 
 import 'package:flutter_whatsapp_clone/data/datasource/firebase_remote_datasource.dart';
+import 'package:flutter_whatsapp_clone/domain/entities/my_chat_entity.dart';
+import 'package:flutter_whatsapp_clone/domain/entities/text_message_entity.dart';
 import 'package:flutter_whatsapp_clone/domain/entities/user_entity.dart';
 import 'package:flutter_whatsapp_clone/domain/repositories/firebase_repository.dart';
 
@@ -30,5 +32,41 @@ class FirebaseRepositoryImpl implements FirebaseRepository{
   @override
   Future<void> verifyPhoneNumber(String phoneNumber) async =>
       await remoteDataSource.verifyPhoneNumber(phoneNumber);
+
+  @override
+  Future<void> addToMyChat(MyChatEntity myChatEntity) {
+    // TODO: implement addToMyChat
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<void> createOneToOneChatChannel(String uid, String otherUid) async
+  => remoteDataSource.createOneToOneChatChannel(uid, otherUid);
+
+  @override
+  Stream<List<UserEntity>> getAllUsers() =>
+      remoteDataSource.getAllUsers();
+
+  @override
+  Stream<List<TextMessageEntity>> getMessages() {
+    // TODO: implement getMessages
+    throw UnimplementedError();
+  }
+
+  @override
+  Stream<List<MyChatEntity>> getMyChat(String uid) {
+    // TODO: implement getMyChat
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<String> getOneToOneSingleUserChannelId(String uid, String otherUid) =>
+      remoteDataSource.getOneToOneSingleUserChannelId(uid, otherUid);
+
+  @override
+  Future<void> sendTextMessage(TextMessageEntity textMessageEntity) {
+    // TODO: implement sendTextMessage
+    throw UnimplementedError();
+  }
 
 }

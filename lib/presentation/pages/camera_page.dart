@@ -41,7 +41,7 @@ class _CameraPageState extends State<CameraPage> {
   }
   @override
   Widget build(BuildContext context) {
-    if (!_cameraController.value.isInitialized){
+    if (_cameraController==null || !_cameraController.value.isInitialized){
       return Container(height: 0.0,width: 0.0,);
     }
     return Scaffold(
