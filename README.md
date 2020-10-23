@@ -5,6 +5,8 @@
 
 
 ### Preview
+![ezgif com-crop(1)](https://user-images.githubusercontent.com/10207753/96955170-6dc0a800-150e-11eb-9b9c-0382899f6caf.gif)
+  <br/>
  **Phone Auth**
   <br/>
  ![ezgif com-crop(1)](https://user-images.githubusercontent.com/10207753/95010374-4c247d00-0642-11eb-9b37-6b65a369fa8e.gif)
@@ -28,7 +30,10 @@
                   <img src="https://user-images.githubusercontent.com/10207753/93623098-a2b17a80-f9f7-11ea-9040-3ca49d985e81.png" height="500" /> 
  
    <img src="https://user-images.githubusercontent.com/10207753/95010266-4ed2a280-0641-11eb-984f-2cbfb5ca49f9.png" height="500" /> 
-     <img src="https://user-images.githubusercontent.com/10207753/95883416-5528f300-0d94-11eb-8f5c-df06548bba54.png" height="500" /> 
+   <img src="https://user-images.githubusercontent.com/10207753/96955432-fccdc000-150e-11eb-91c0-7d0f0b3e75b2.png" height="500" />
+        <img src="https://user-images.githubusercontent.com/10207753/96955435-ff301a00-150e-11eb-94dc-b40f57bbd4e5.png" height="500" /> 
+   
+   <img src="https://user-images.githubusercontent.com/10207753/95883416-5528f300-0d94-11eb-8f5c-df06548bba54.png" height="500" /> 
 <img src="https://user-images.githubusercontent.com/10207753/94138637-dc640480-fe81-11ea-93e1-2cb810ccfa02.png" height="500" /> 
        <img src="https://user-images.githubusercontent.com/10207753/94138675-e71e9980-fe81-11ea-99f8-e5c191012a35.png" height="500" /> 
      <img src="https://user-images.githubusercontent.com/10207753/94138657-e259e580-fe81-11ea-875e-50600daa5c74.png" height="500" /> 
@@ -52,7 +57,7 @@
 <a href="https://youtu.be/SimkRpjG2Mc">Flutter WhatsApp Clone (with Firebase + Clean Architecture) Part 4</a>
 <br/>
 <img src="https://user-images.githubusercontent.com/10207753/84770526-2589fa00-aff1-11ea-83bf-f1255b9371ac.jpg" width="50" height="30" />
-<a href="#">Flutter WhatsApp Clone (with Firebase + Clean Architecture) Part 5 coming soong</a>
+<a href="https://youtu.be/O8y1Lco_LYM">Flutter WhatsApp Clone (with Firebase + Clean Architecture) Part 5</a>
 <br/>
 <img src="https://user-images.githubusercontent.com/10207753/84770526-2589fa00-aff1-11ea-83bf-f1255b9371ac.jpg" width="50" height="30" />
 <a href="#">Flutter WhatsApp Clone (with Firebase + Clean Architecture) Part 6 coming soong</a>
