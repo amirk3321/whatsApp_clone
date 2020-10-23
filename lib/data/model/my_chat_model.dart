@@ -17,18 +17,18 @@ class MyChatModel extends MyChatEntity {
     bool isArchived,
     Timestamp time,
   }) : super(
-          senderName,
-          senderUID,
-          recipientName,
-          recipientUID,
-          channelId,
-          profileURL,
-          recipientPhoneNumber,
-          senderPhoneNumber,
-          recentTextMessage,
-          isRead,
-          isArchived,
-          time,
+          senderName: senderName,
+          senderUID: senderUID,
+          recipientName: recipientName,
+          recipientUID: recipientUID,
+          channelId: channelId,
+          profileURL: profileURL,
+          recipientPhoneNumber: recipientPhoneNumber,
+          senderPhoneNumber: senderPhoneNumber,
+          recentTextMessage: recentTextMessage,
+          isRead: isRead,
+          isArchived: isArchived,
+          time: time,
         );
 
   factory MyChatModel.fromSnapShot(DocumentSnapshot snapshot) {
@@ -47,20 +47,21 @@ class MyChatModel extends MyChatEntity {
       profileURL: snapshot.data()['profileURL'],
     );
   }
-  Map<String,dynamic> toDocument(){
+
+  Map<String, dynamic> toDocument() {
     return {
-      "senderName":senderName,
-      "senderUID":senderUID,
-      "recipientName":recipientName,
-      "recipientUID":recipientUID,
-      "channelId":channelId,
-      "profileURL":profileURL,
-      "recipientPhoneNumber":recipientPhoneNumber,
-      "senderPhoneNumber":senderPhoneNumber,
-      "recentTextMessage":recentTextMessage,
-      "isRead":isRead,
-      "isArchived":isArchived,
-      "time":time,
+      "senderName": senderName,
+      "senderUID": senderUID,
+      "recipientName": recipientName,
+      "recipientUID": recipientUID,
+      "channelId": channelId,
+      "profileURL": profileURL,
+      "recipientPhoneNumber": recipientPhoneNumber,
+      "senderPhoneNumber": senderPhoneNumber,
+      "recentTextMessage": recentTextMessage,
+      "isRead": isRead,
+      "isArchived": isArchived,
+      "time": time,
     };
   }
 }

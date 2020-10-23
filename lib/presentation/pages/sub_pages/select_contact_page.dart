@@ -5,6 +5,7 @@ import 'package:flutter_whatsapp_clone/domain/entities/contact_entity.dart';
 import 'package:flutter_whatsapp_clone/domain/entities/user_entity.dart';
 import 'package:flutter_whatsapp_clone/presentation/bloc/get_device_number/get_device_numbers_cubit.dart';
 import 'package:flutter_whatsapp_clone/presentation/bloc/user/user_cubit.dart';
+import 'package:flutter_whatsapp_clone/presentation/pages/sub_pages/single_communication_page.dart';
 import 'package:flutter_whatsapp_clone/presentation/widgets/theme/style.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -175,6 +176,16 @@ class _SelectContactPageState extends State<SelectContactPage> {
         itemBuilder: (ctx, index) {
           return InkWell(
             onTap: () {
+              Navigator.push(context, MaterialPageRoute(
+                builder: (_) => SingleCommunicationPage(
+                  recipientName: contacts[index].label,
+                  recipientPhoneNumber: contacts[index].phoneNumber,
+                  recipientUID: contacts[index].uid,
+                  senderName: widget.userInfo.name,
+                  senderUID: widget.userInfo.uid,
+                  senderPhoneNumber: widget.userInfo.phoneNumber,
+                )
+              ));
               BlocProvider.of<UserCubit>(context).createChatChannel(
                   uid: widget.userInfo.uid, otherUid: contacts[index].uid);
             },

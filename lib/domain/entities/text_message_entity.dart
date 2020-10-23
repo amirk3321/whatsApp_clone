@@ -11,7 +11,7 @@ class TextMessageEntity extends Equatable {
   final String messageId;
   final Timestamp time;
 
-  TextMessageEntity(
+  TextMessageEntity({
     this.senderName,
     this.sederUID,
     this.recipientName,
@@ -20,7 +20,7 @@ class TextMessageEntity extends Equatable {
     this.message,
     this.messageId,
     this.time,
-  );
+  });
 
   @override
   // TODO: implement props

@@ -15,7 +15,7 @@ class MyChatEntity extends Equatable {
   final bool isArchived;
   final Timestamp time;
 
-  MyChatEntity(
+  MyChatEntity({
     this.senderName,
     this.senderUID,
     this.recipientName,
@@ -28,7 +28,7 @@ class MyChatEntity extends Equatable {
     this.isRead,
     this.isArchived,
     this.time,
-  );
+  });
 
   @override
   // TODO: implement props

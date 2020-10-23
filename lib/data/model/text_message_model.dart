@@ -13,14 +13,14 @@ class TextMessageModel extends TextMessageEntity {
     String messageId,
     Timestamp time,}
   ) : super(
-          senderName,
-          sederUID,
-          recipientName,
-          recipientUID,
-          messageType,
-          message,
-          messageId,
-          time,
+    senderName:senderName,
+    sederUID: sederUID,
+    recipientName: recipientName,
+    recipientUID: recipientUID,
+    messsageType:messageType,
+    message:message,
+    messageId:messageId,
+    time: time,
         );
   factory TextMessageModel.fromSnapShot(DocumentSnapshot snapshot){
     return TextMessageModel(

@@ -2,10 +2,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SingleItemChatUserPage extends StatelessWidget {
+  final String time;
+  final String recentSendMessage;
+  final String name;
+
+  const SingleItemChatUserPage(
+      {Key key, this.time, this.recentSendMessage, this.name})
+      : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 10,right: 10,left: 10),
+      margin: EdgeInsets.only(top: 10, right: 10, left: 10),
       child: Column(
         children: <Widget>[
           Row(
@@ -27,10 +35,16 @@ class SingleItemChatUserPage extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text("User Name",style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500),),
-                      SizedBox(height: 5,),
                       Text(
-                        "hi there i'm using this app",
+                        "$name",
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w500),
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        "$recentSendMessage",
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                       )
@@ -38,12 +52,14 @@ class SingleItemChatUserPage extends StatelessWidget {
                   ),
                 ],
               ),
-              Text("12:47 AM")
+              Text("$time")
             ],
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 60,right: 10),
-            child: Divider(thickness: 1.50,),
+            padding: const EdgeInsets.only(left: 60, right: 10),
+            child: Divider(
+              thickness: 1.50,
+            ),
           ),
         ],
       ),

@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_whatsapp_clone/data/model/user_model.dart';
 import 'package:flutter_whatsapp_clone/presentation/bloc/auth/auth_cubit.dart';
+import 'package:flutter_whatsapp_clone/presentation/bloc/communication/communication_cubit.dart';
 import 'package:flutter_whatsapp_clone/presentation/bloc/get_device_number/get_device_numbers_cubit.dart';
+import 'package:flutter_whatsapp_clone/presentation/bloc/my_chat/my_chat_cubit.dart';
 import 'package:flutter_whatsapp_clone/presentation/screens/home_screen.dart';
 import 'package:flutter_whatsapp_clone/presentation/screens/welcome_screen.dart';
 import 'package:flutter_whatsapp_clone/presentation/widgets/theme/style.dart';
@@ -36,6 +38,12 @@ class MyApp extends StatelessWidget {
         BlocProvider<GetDeviceNumbersCubit>(
           create: (_) => di.sl<GetDeviceNumbersCubit>(),
         ),
+        BlocProvider<CommunicationCubit>(
+          create: (_) => di.sl<CommunicationCubit>(),
+        ),
+        BlocProvider<MyChatCubit>(
+          create: (_) => di.sl<MyChatCubit>(),
+        )
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

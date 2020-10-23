@@ -13,11 +13,11 @@ abstract class FirebaseRemoteDataSource{
   Future<void> getCreateCurrentUser(UserEntity user);
 
   Stream<List<UserEntity>> getAllUsers();
-  Stream<List<TextMessageEntity>> getMessages();
+  Stream<List<TextMessageEntity>> getMessages(String channelId);
   Stream<List<MyChatEntity>> getMyChat(String uid);
 
   Future<void> createOneToOneChatChannel(String uid,String otherUid);
   Future<String> getOneToOneSingleUserChannelId(String uid,String otherUid);
   Future<void> addToMyChat(MyChatEntity myChatEntity);
-  Future<void> sendTextMessage(TextMessageEntity textMessageEntity);
+  Future<void> sendTextMessage(TextMessageEntity textMessageEntity,String channelId,);
 }

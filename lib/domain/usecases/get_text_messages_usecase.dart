@@ -7,7 +7,7 @@ class GetTextMessagesUseCase{
 
   GetTextMessagesUseCase({this.repository});
 
-  Stream<List<TextMessageEntity>> call(){
-    return repository.getMessages();
+  Stream<List<TextMessageEntity>> call(String channelId){
+    return repository.getMessages(channelId);
   }
 }
